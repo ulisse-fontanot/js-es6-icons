@@ -131,6 +131,20 @@ $(document).ready(function () {
       `
     });
 
+    //STAMPO ICONE
+    const container = $("main");
+    const printIcons = iconsColor.forEach((element) =>{
+      const {name, type, color} = element;
+      container.append(`
+        <div class="icon">
+          <i class="fas fa-${name}" style="color: ${color}"></i>
+          <div class="title">${name.toUpperCase()}</div>
+        </div>
+        `);
+    });
+
+    //CHANGE
+    
 
 
 });
