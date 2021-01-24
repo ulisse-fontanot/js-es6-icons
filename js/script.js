@@ -132,27 +132,47 @@ $(document).ready(function () {
     });
 
     //STAMPO ICONE
-    const container = $("main");
-    const printIcons = iconsColor.forEach((element) =>{
-      const {name, type, color} = element;
-      container.append(`
-        <div class="icon">
-          <i class="fas fa-${name}" style="color: ${color}"></i>
-          <div class="title">${name.toUpperCase()}</div>
-        </div>
-        `);
-    });
+    const container = $(".icons");
+    printIcons(iconsColor,container);
 
     //CHANGE
-    
+    const select = $("#scelta");
+    select.change(function() {
+      const selected = $(this).val();
+
+      const filteredIcons = filterValue(iconsColor,selected);
+
+      printIcons(filteredIcons,container);
+    });
 
 
 });
 
+//FILTRO CHANGE
+function filterValue(array,type){
+  const filteredIcons=array.filter((element) =>{
+    return element.type == type;
+  });
 
+  if (filteredIcons.length > 0) {
+    return filteredIcons;
+  }
+  return array;
+}
 
-
-
+//STAMPO ICONE
+function printIcons(array,container) {
+  container.html("");
+  array.forEach((element) =>{
+    const {name, type, color} = element;
+    container.append(`
+      <div class="icon">
+        <i class="fas fa-${name}" style="color: ${color}"></i>
+        <div class="title">${name.toUpperCase()}</div>
+      </div>
+      `);
+  });
+}
 
 
 

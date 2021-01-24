@@ -9,7 +9,7 @@ body{
 }
 
 header{
-  height: 150px;
+  height: 100px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -42,7 +42,7 @@ main{
 
 main div.icon{
   width: 18%;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
